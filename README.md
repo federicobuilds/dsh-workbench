@@ -21,7 +21,7 @@ For profiles with an existing `cordis.patch.yml`, reconcile the Governance and J
 - **Judge** uses a dedicated Python 3.12 environment. See the [Judge setup](packages/dsh-judge/README.md). Set `DSH_JUDGE_PYTHON` in DSH’s process environment. Configure any external judge route separately in DSH.
 - **Workspace Index** defaults to local Ollama and the `embeddinggemma:300m` model. It builds and watches by default. Set `autoBuild: false` or `autoWatch: false` to control that behavior. To use a non-loopback endpoint, configure an HTTPS URL and set `allowExternalEmbeddings: true`. The endpoint receives eligible workspace text and search queries. The status card shows the destination.
 - **Prompt Enhancer** sends plain-text drafts when the owner uses Enhance. The button identifies the provider. Configure provider credentials in DSH.
-- **Chat Search** needs a separately installed DSH chat-search MCP server, its Python interpreter and absolute paths to the local index and sessions. Automatic refresh is off by default. The index is local private data.
+- **Chat Search** needs a separate installation of [DSH Chat Search MCP](https://github.com/federicobuilds/mcp-toolbox/tree/v1.0.0/servers/search/dsh-chat-search-mcp), its Python interpreter and absolute paths to the local index and sessions. Automatic refresh is off by default. The index is local private data.
 
 Review each plugin’s configuration in DSH before enabling a model or local service. Workbench ships no credentials.
 
