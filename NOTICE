@@ -1,0 +1,11 @@
+DSH Workbench
+
+Workbench source is distributed under AGPL-3.0-only. See LICENSE.
+
+Message Edit includes modified DeepSeek Harness Chat source from
+packages/client/ui-chat, Copyright (c) 2026 DeepSeek, under MIT.
+See packages/dsh-message-edit/DSH-LICENSE and PROVENANCE.md.
+
+The dependencies bundled in Message Edit retain their original notices
+in packages/dsh-message-edit/dist/LICENSES.md. The lockfile records the
+npm packages used for the build and tests.

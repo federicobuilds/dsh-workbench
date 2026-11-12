@@ -1,0 +1,119 @@
+[
+ {
+  "id": "agent-instructions",
+  "name": "@deepseek-ai/dsh-agent-instructions",
+  "config": {
+   "maxBytes": 65536,
+   "projectRootMarkers": [
+    ".git",
+    ".kilocode",
+    ".kilo",
+    ".dsh"
+   ]
+  }
+ },
+ {
+  "id": "llm-pi-ai",
+  "name": "@deepseek-ai/dsh-llm-pi-ai",
+  "config": {
+   "providers": {
+    "openrouter": {
+     "apiKeyEnv": "OPENROUTER_API_KEY",
+     "retryPolicy": {
+      "mode": "normal",
+      "maxRetries": 1,
+      "retryableCodes": ["RATE_LIMIT", "SERVER", "TRANSPORT"]
+     }
+    },
+    "llm-server": {
+     "displayName": "LLMServer",
+     "retryPolicy": {
+      "mode": "normal",
+      "maxRetries": 1,
+      "retryableCodes": ["RATE_LIMIT", "SERVER", "TRANSPORT"]
+     },
+     "api": "openai-completions",
+     "baseURL": "http://127.0.0.1:18080/v1",
+     "headers": {
+      "Authorization": "Bearer local"
+     },
+     "models": [
+      {
+       "id": "Qwen3.8 Flash Next",
+       "name": "Qwen3.8 Flash Next",
+       "contextWindow": 262144,
+       "maxTokens": 16384,
+       "input": [
+        "text",
+        "image"
+       ]
+      },
+      {
+       "id": "Qwen3.8 Flash Next Uncensored",
+       "name": "Qwen3.8 Flash Next Uncensored",
+       "contextWindow": 262144,
+       "maxTokens": 16384,
+       "input": [
+        "text",
+        "image"
+       ]
+      },
+      {
+       "id": "MiniMax M2.7",
+       "name": "MiniMax M2.7",
+       "contextWindow": 65536,
+       "maxTokens": 16384
+      }
+     ]
+    },
+    "degen": {
+     "displayName": "Degen",
+     "retryPolicy": {
+      "mode": "normal",
+      "maxRetries": 1,
+      "retryableCodes": ["RATE_LIMIT", "SERVER", "TRANSPORT"]
+     },
+     "api": "openai-completions",
+     "baseURL": "http://127.0.0.1:18046/v1",
+     "headers": {
+      "Authorization": "Bearer local"
+     },
+     "models": [
+      {
+       "id": "Mellum2.1",
+       "name": "Mellum2.1",
+       "contextWindow": 65536,
+       "maxTokens": 16384
+      },
+      {
+       "id": "Gemma4-26B",
+       "name": "Gemma4-26B",
+       "contextWindow": 65536,
+       "maxTokens": 16384
+      },
+      {
+       "id": "Mellum2.1-Abliterated",
+       "name": "Mellum2.1-Abliterated",
+       "contextWindow": 65536,
+       "maxTokens": 16384
+      },
+      {
+       "id": "Gemma4-26B-Abliterated",
+       "name": "Gemma4-26B-Abliterated",
+       "contextWindow": 65536,
+       "maxTokens": 16384
+      }
+     ]
+    }
+   }
+  }
+ },
+ {
+  "insert": [
+   {
+    "id": "dsh-role-presets",
+    "name": "@dsh-workbench/dsh-role-presets"
+   }
+  ]
+ }
+]

@@ -1,0 +1,50 @@
+{
+  "name": "@dsh-workbench/dsh-task-progress",
+  "version": "2.0.2",
+  "private": true,
+  "type": "module",
+  "license": "AGPL-3.0-only",
+  "description": "EVM, analogy, and survival-calibrated station clock & progress bar above the composer with non-interrupting model guidance and read-only DSH governance integration.",
+  "engines": {
+    "dsh": "0.2.2-rc.1"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./remote": "./remote.js",
+    "./engine": "./engine.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "engine.js",
+    "remote.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-api-gateway",
+        "@deepseek-ai/dsh-api-remotes",
+        "@deepseek-ai/dsh-api-session-controller",
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-chat",
+        "@deepseek-ai/dsh-client-ui-session"
+      ]
+    }
+  },
+  "scripts": {
+    "test": "node --test *.test.*"
+  }
+}

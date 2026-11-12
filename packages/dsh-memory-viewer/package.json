@@ -1,0 +1,37 @@
+{
+  "name": "@dsh-workbench/dsh-memory-viewer",
+  "version": "0.1.1",
+  "type": "module",
+  "engines": {
+    "node": ">=24.9.0",
+    "dsh": "0.2.2-rc.1"
+  },
+  "scripts": {
+    "test": "node --test *.test.*"
+  },
+  "exports": {
+    ".": "./index.mjs",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json",
+    "./cordis.patch.yml": "./cordis.patch.yml"
+  },
+  "files": [
+    "*.mjs",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "license": "AGPL-3.0-only",
+  "description": "Project memory preview and companion publication for DeepSeek Harness.",
+  "peerDependencies": {
+    "@dsh-workbench/dsh-governance": "^1.1.5"
+  },
+  "private": true
+}

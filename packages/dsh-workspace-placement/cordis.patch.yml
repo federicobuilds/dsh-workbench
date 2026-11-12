@@ -1,0 +1,4 @@
+- insert:
+    - id: workspace-placement
+      name: '@dsh-workbench/dsh-workspace-placement'
+      disabled: false

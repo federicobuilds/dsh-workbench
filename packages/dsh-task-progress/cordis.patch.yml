@@ -1,0 +1,4 @@
+- insert:
+    - id: task-progress
+      name: '@dsh-workbench/dsh-task-progress'
+      config: {}

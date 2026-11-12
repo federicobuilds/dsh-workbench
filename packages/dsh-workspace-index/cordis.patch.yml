@@ -1,0 +1,12 @@
+- insert:
+    - id: dsh-workspace-index
+      name: '@dsh-workbench/dsh-workspace-index'
+      config:
+        baseURL: 'http://127.0.0.1:11434/v1'
+        model: 'embeddinggemma:300m'
+        dimensions: 768
+        maxFileBytes: 262144
+        maxFiles: 3000
+        chunkChars: 1600
+        watch: true
+        autoBuild: true

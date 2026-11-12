@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Barra de progreso de tareas y metas",
+    "description": "Muestra una barra de progreso sobre el compositor con el porcentaje de finalización y el tiempo estimado restante."
+  }
+}

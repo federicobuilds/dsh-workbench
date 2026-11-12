@@ -1,0 +1,366 @@
+{
+  "schema": "dsh-role-roster-whitelist/v1",
+  "source_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "providers": {
+    "openrouter": {
+      "baseURL": null,
+      "auth_values_excluded": true
+    }
+  },
+  "agents": [
+    {
+      "seat": "orchestrator-custom",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "coder-custom",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "deep-researcher",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "reviewer",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "auditor",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "teacher-mode",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "career-advisor",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "video-editor",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "executor-cheap",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "executor",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "executor-max",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "critic",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "critic-max",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "reviewer-max",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "auditor-max",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "executor-s-cheap",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "executor-s",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "executor-s-max",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "executor-f-cheap",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "executor-f",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "executor-f-strong",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "critic-f",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "critic-f-max",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "auditor-f",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "auditor-f-max",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "reviewer-f",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "reviewer-f-max",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "deep-researcher-f",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "video-assistant-f-cheap",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "video-assistant-f",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "video-assistant-f-strong",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "motion-vfx-f-cheap",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "motion-vfx-f",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "motion-vfx-f-strong",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "audiovisual-review-f",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "audiovisual-review-f-max",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "critic-s",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "critic-s-max",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "auditor-s",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "auditor-s-max",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "reviewer-s",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "reviewer-s-max",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "explore",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "video-assistant-s-cheap",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "video-assistant-s",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "video-assistant-s-max",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "motion-vfx-s-cheap",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "motion-vfx-s",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "motion-vfx-s-max",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "audiovisual-review-s",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "audiovisual-review-s-max",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "video-assistant-cheap",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "video-assistant",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "video-assistant-max",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "motion-vfx-cheap",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "motion-vfx",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "motion-vfx-max",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "audiovisual-review",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    },
+    {
+      "seat": "audiovisual-review-max",
+      "enabled": true,
+      "configured_target": "openrouter/deepseek/deepseek-v4.1-flash",
+      "configured_effort": null
+    }
+  ]
+}

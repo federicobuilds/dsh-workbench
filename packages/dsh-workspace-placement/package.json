@@ -1,0 +1,41 @@
+{
+  "name": "@dsh-workbench/dsh-workspace-placement",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Workspace and task references for saved DSH chats.",
+  "engines": {
+    "node": ">=24.9.0",
+    "dsh": "0.2.2-rc.1"
+  },
+  "exports": {
+    ".": "./host.mjs",
+    "./client": "./client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "host.mjs",
+    "client.js",
+    "placement.mjs",
+    "protocol.mjs",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-api-remotes",
+        "@deepseek-ai/dsh-client-ui-workspace"
+      ]
+    }
+  },
+  "license": "AGPL-3.0-only",
+  "scripts": {
+    "test": "node --test placement.test.mjs"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "name": "@dsh-workbench/dsh-search-guard",
+  "version": "0.1.1",
+  "type": "module",
+  "engines": {
+    "node": ">=24.9.0",
+    "dsh": "0.2.2-rc.1"
+  },
+  "scripts": {
+    "test": "node --test *.test.mjs"
+  },
+  "exports": {
+    ".": "./index.mjs",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json",
+    "./cordis.patch.yml": "./cordis.patch.yml"
+  },
+  "files": [
+    "*.mjs",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "license": "AGPL-3.0-only",
+  "description": "Workspace search boundary enforcement for DeepSeek Harness.",
+  "private": true
+}

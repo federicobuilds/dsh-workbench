@@ -1,0 +1,38 @@
+{
+  "name": "@dsh-workbench/dsh-mac-video-use",
+  "version": "0.1.1",
+  "description": "Video-editing workflow guidance for DeepSeek Harness macOS Computer Use",
+  "type": "module",
+  "main": "./index.mjs",
+  "exports": {
+    ".": "./index.mjs",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "engines": {
+    "node": ">=24.9.0",
+    "dsh": "0.2.2-rc.1"
+  },
+  "files": [
+    "index.mjs",
+    "cordis.patch.yml",
+    "README.md",
+    "locale/*.json",
+    "icon.svg"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml",
+      "platforms": [
+        "darwin"
+      ]
+    }
+  },
+  "private": true,
+  "license": "AGPL-3.0-only",
+  "scripts": {
+    "test": "node --test *.test.*"
+  }
+}

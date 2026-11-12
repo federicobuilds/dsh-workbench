@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Task and goal progress bar",
+    "description": "Displays a progress bar above the composer with completion percentage and estimated time remaining."
+  }
+}

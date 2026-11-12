@@ -1,0 +1,56 @@
+/* One open message editor: draft textarea, transient notice, commit controls.
+   Parent rows own placement; user rows compose their bubble-width cap. */
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  min-width: 0;
+}
+
+/* The editor fills the panel width instead of the InlineEditor's row share. */
+.editor {
+  flex: none;
+  width: 100%;
+}
+
+.notice {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  font-size: var(--dsh-content-font-size-secondary, 13px);
+  line-height: calc(18px + var(--dsh-content-font-delta-secondary, 0px));
+  overflow-wrap: anywhere;
+}
+
+.notice[data-outcome='conflict'] {
+  color: var(--dsw-alias-state-warn-primary);
+}
+
+.notice[data-outcome='failed'],
+.notice[data-outcome='forkFailed'],
+.notice[data-outcome='partialFork'] {
+  color: var(--dsw-alias-state-error-primary);
+}
+
+/* The partial settlement names the child that exists without the edit. */
+.noticeDetail {
+  color: var(--dsw-alias-label-tertiary);
+  font: var(--dsw-font-markdown-code-block-small);
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+/* The narrow layout stacks the commit controls instead of wrapping them. */
+@media (max-width: 390px) {
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

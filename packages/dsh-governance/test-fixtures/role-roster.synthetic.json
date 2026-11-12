@@ -1,0 +1,29 @@
+{
+  "schema": "dsh-role-roster-whitelist/v1",
+  "source_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "auth_prompt_mcp_values_excluded": true,
+  "providers": { "openrouter": { "baseURL": null, "auth_values_excluded": true } },
+  "agents": [
+    { "seat": "orchestrator-custom", "enabled": true, "configured_target": "openrouter/synthetic", "configured_effort": null },
+    { "seat": "coder-custom", "enabled": true, "configured_target": "openrouter/synthetic", "configured_effort": null },
+    { "seat": "deep-researcher", "enabled": true, "configured_target": "openrouter/synthetic", "configured_effort": null },
+    { "seat": "reviewer", "enabled": true, "configured_target": "openrouter/synthetic", "primary_target": "openrouter/synthetic-primary", "configured_effort": null },
+    { "seat": "auditor", "enabled": true, "configured_target": "openrouter/synthetic", "primary_target": "openrouter/synthetic-primary", "configured_effort": null },
+    { "seat": "teacher-mode", "enabled": true, "configured_target": "openrouter/synthetic", "configured_effort": null },
+    { "seat": "career-advisor", "enabled": true, "configured_target": "openrouter/synthetic", "configured_effort": null },
+    { "seat": "video-editor", "enabled": true, "configured_target": "openrouter/synthetic", "configured_effort": null },
+    { "seat": "executor-cheap", "enabled": true, "configured_target": "openrouter/synthetic", "configured_effort": null },
+    { "seat": "executor", "enabled": true, "configured_target": "openrouter/openai/gpt-6.1-terra", "configured_effort": "xhigh", "source_variant": "xhigh" },
+    { "seat": "executor-max", "enabled": true, "configured_target": "openrouter/synthetic", "configured_effort": null },
+    { "seat": "critic", "enabled": true, "configured_target": "openrouter/synthetic", "configured_effort": null },
+    { "seat": "critic-max", "enabled": true, "configured_target": "openrouter/synthetic", "configured_effort": null },
+    { "seat": "reviewer-max", "enabled": true, "configured_target": "openrouter/synthetic", "configured_effort": null },
+    { "seat": "auditor-max", "enabled": true, "configured_target": "openrouter/synthetic", "configured_effort": null },
+    { "seat": "executor-s-cheap", "enabled": true, "configured_target": "openrouter/synthetic", "configured_effort": null },
+    { "seat": "executor-s", "enabled": true, "configured_target": "openrouter/synthetic", "configured_effort": null },
+    { "seat": "executor-s-max", "enabled": true, "configured_target": "openrouter/synthetic", "configured_effort": null },
+    { "seat": "executor-f-cheap", "enabled": true, "configured_target": "openrouter/synthetic", "configured_effort": null },
+    { "seat": "executor-f", "enabled": true, "configured_target": "openrouter/synthetic", "configured_effort": null },
+    { "seat": "executor-f-strong", "enabled": true, "configured_target": "openrouter/synthetic", "configured_effort": null }
+  ]
+}

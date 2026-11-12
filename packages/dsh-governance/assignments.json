@@ -1,0 +1,373 @@
+{
+  "dsh-agent-pc-builder": {
+    "sourceRole": "pc-builder",
+    "target": "openrouter/moonshotai/kimi-k3.1-pro",
+    "variant": null
+  },
+  "dsh-agent-fitness-coach": {
+    "sourceRole": "fitness-coach",
+    "target": "openrouter/deepseek/deepseek-v4.1-flash-1017",
+    "variant": null
+  },
+  "dsh-agent-brilliant-writer": {
+    "sourceRole": "brilliant-writer",
+    "target": "openrouter/deepseek/deepseek-v4.1-flash-1017",
+    "variant": null
+  },
+  "dsh-agent-deep-researcher": {
+    "sourceRole": "deep-researcher",
+    "target": "openrouter/deepseek/deepseek-v4.1-flash-1017",
+    "variant": null
+  },
+  "dsh-agent-career-advisor": {
+    "sourceRole": "career-advisor",
+    "target": "openrouter/deepseek/deepseek-v4.1-flash-1017",
+    "variant": null
+  },
+  "dsh-agent-coder-custom": {
+    "sourceRole": "coder-custom",
+    "target": "openrouter/moonshotai/kimi-k3.1-pro",
+    "variant": null
+  },
+  "dsh-agent-teacher-mode": {
+    "sourceRole": "teacher-mode",
+    "target": "openrouter/deepseek/deepseek-v4.1-flash-1017",
+    "variant": null
+  },
+  "dsh-agent-test": {
+    "sourceRole": "test",
+    "target": "openrouter/deepseek/deepseek-v4.1-flash-1017",
+    "variant": null
+  },
+  "dsh-agent-orchestrator-custom": {
+    "sourceRole": "orchestrator-custom",
+    "target": "openrouter/qwen/qwen3.8-2.4t-a95b",
+    "variant": null
+  },
+  "dsh-agent-auditor": {
+    "sourceRole": "auditor",
+    "target": "openrouter/z-ai/glm-5.3",
+    "variant": null
+  },
+  "dsh-agent-auditor-s": {
+    "sourceRole": "auditor-s",
+    "target": "openrouter/z-ai/glm-5.3-flash",
+    "variant": "high"
+  },
+  "dsh-agent-critic": {
+    "sourceRole": "critic",
+    "target": "openrouter/z-ai/glm-5.3",
+    "variant": null
+  },
+  "dsh-agent-critic-s": {
+    "sourceRole": "critic-s",
+    "target": "openrouter/z-ai/glm-5.3-flash",
+    "variant": null
+  },
+  "dsh-agent-reviewer": {
+    "sourceRole": "reviewer",
+    "target": "openrouter/z-ai/glm-5.3",
+    "variant": "high"
+  },
+  "dsh-agent-reviewer-s": {
+    "sourceRole": "reviewer-s",
+    "target": "openrouter/z-ai/glm-5.3-flash",
+    "variant": null
+  },
+  "dsh-agent-executor": {
+    "sourceRole": "executor",
+    "target": "openrouter/openai/gpt-6.1-terra",
+    "variant": "xhigh"
+  },
+  "dsh-agent-executor-cheap": {
+    "sourceRole": "executor-cheap",
+    "target": "openrouter/deepseek/deepseek-v4.1-flash-1017",
+    "variant": null
+  },
+  "dsh-agent-executor-max": {
+    "sourceRole": "executor-max",
+    "target": "openrouter/moonshotai/kimi-k3.1-pro",
+    "variant": null
+  },
+  "dsh-agent-executor-s-cheap": {
+    "sourceRole": "executor-s-cheap",
+    "target": "openrouter/xiaomi/mimo-v2.6-flash",
+    "variant": null
+  },
+  "dsh-agent-executor-s": {
+    "sourceRole": "executor-s",
+    "target": "openrouter/deepseek/deepseek-v4.1-flash-1017",
+    "variant": null
+  },
+  "dsh-agent-executor-s-max": {
+    "sourceRole": "executor-s-max",
+    "target": "openrouter/z-ai/glm-5.3-flash",
+    "variant": null
+  },
+  "dsh-aux-compaction": {
+    "sourceRole": "compaction",
+    "target": "openrouter/deepseek/deepseek-v4.1-flash-1017",
+    "variant": null,
+    "auxiliary": true
+  },
+  "dsh-agent-critic-max": {
+    "sourceRole": "critic-max",
+    "target": "openrouter/moonshotai/kimi-k3.1-pro",
+    "variant": null
+  },
+  "dsh-agent-auditor-max": {
+    "sourceRole": "auditor-max",
+    "target": "openrouter/moonshotai/kimi-k3.1-pro",
+    "variant": null
+  },
+  "dsh-agent-reviewer-max": {
+    "sourceRole": "reviewer-max",
+    "target": "openrouter/moonshotai/kimi-k3.1-pro",
+    "variant": null
+  },
+  "dsh-agent-critic-s-max": {
+    "sourceRole": "critic-s-max",
+    "target": "openrouter/z-ai/glm-5.3",
+    "variant": null
+  },
+  "dsh-agent-auditor-s-max": {
+    "sourceRole": "auditor-s-max",
+    "target": "openrouter/z-ai/glm-5.3",
+    "variant": "high"
+  },
+  "dsh-agent-reviewer-s-max": {
+    "sourceRole": "reviewer-s-max",
+    "target": "openrouter/z-ai/glm-5.3",
+    "variant": null
+  },
+  "dsh-agent-executor-f-cheap": {
+    "sourceRole": "executor-f-cheap",
+    "target": "degen/Mellum2.1",
+    "variant": "high"
+  },
+  "dsh-agent-executor-f": {
+    "sourceRole": "executor-f",
+    "target": "openrouter/google/gemma-4-31b-it:free",
+    "variant": null
+  },
+  "dsh-agent-executor-f-strong": {
+    "sourceRole": "executor-f-strong",
+    "target": "openrouter/z-ai/glm-5.3-flash",
+    "variant": null
+  },
+  "dsh-agent-critic-f": {
+    "sourceRole": "critic-f",
+    "target": "degen/Gemma4-26B",
+    "variant": "high"
+  },
+  "dsh-agent-critic-f-max": {
+    "sourceRole": "critic-f-max",
+    "target": "openrouter/z-ai/glm-5.3-flash",
+    "variant": null
+  },
+  "dsh-agent-reviewer-f": {
+    "sourceRole": "reviewer-f",
+    "target": "degen/Gemma4-26B",
+    "variant": null
+  },
+  "dsh-agent-reviewer-f-max": {
+    "sourceRole": "reviewer-f-max",
+    "target": "openrouter/z-ai/glm-5.3-flash",
+    "variant": null
+  },
+  "dsh-agent-auditor-f": {
+    "sourceRole": "auditor-f",
+    "target": "openrouter/google/gemma-4-31b-it:free",
+    "variant": null
+  },
+  "dsh-agent-auditor-f-max": {
+    "sourceRole": "auditor-f-max",
+    "target": "openrouter/z-ai/glm-5.3-flash",
+    "variant": null
+  },
+  "dsh-agent-video-editor": {
+    "sourceRole": "video-editor",
+    "target": "openrouter/moonshotai/kimi-k3.1-pro",
+    "variant": null
+  },
+  "dsh-agent-video-assistant-f-cheap": {
+    "sourceRole": "video-assistant-f-cheap",
+    "target": "degen/Mellum2.1",
+    "variant": "high"
+  },
+  "dsh-agent-video-assistant-f": {
+    "sourceRole": "video-assistant-f",
+    "target": "openrouter/google/gemma-4-31b-it:free",
+    "variant": null
+  },
+  "dsh-agent-video-assistant-f-strong": {
+    "sourceRole": "video-assistant-f-strong",
+    "target": "openrouter/z-ai/glm-5.3-flash",
+    "variant": null
+  },
+  "dsh-agent-motion-vfx-f-cheap": {
+    "sourceRole": "motion-vfx-f-cheap",
+    "target": "degen/Mellum2.1",
+    "variant": "high"
+  },
+  "dsh-agent-motion-vfx-f": {
+    "sourceRole": "motion-vfx-f",
+    "target": "openrouter/google/gemma-4-31b-it:free",
+    "variant": null
+  },
+  "dsh-agent-motion-vfx-f-strong": {
+    "sourceRole": "motion-vfx-f-strong",
+    "target": "openrouter/z-ai/glm-5.3-flash",
+    "variant": null
+  },
+  "dsh-agent-audiovisual-review-f": {
+    "sourceRole": "audiovisual-review-f",
+    "target": "openrouter/google/gemma-4-31b-it:free",
+    "variant": null
+  },
+  "dsh-agent-audiovisual-review-f-max": {
+    "sourceRole": "audiovisual-review-f-max",
+    "target": "openrouter/z-ai/glm-5.3-flash",
+    "variant": null
+  },
+  "dsh-agent-video-assistant-s-cheap": {
+    "sourceRole": "video-assistant-s-cheap",
+    "target": "openrouter/google/gemini-3.1-flash-lite",
+    "variant": null
+  },
+  "dsh-agent-video-assistant-s": {
+    "sourceRole": "video-assistant-s",
+    "target": "openrouter/google/gemini-3.6-flash",
+    "variant": null
+  },
+  "dsh-agent-video-assistant-s-max": {
+    "sourceRole": "video-assistant-s-max",
+    "target": "openrouter/moonshotai/kimi-k3.1-pro",
+    "variant": null
+  },
+  "dsh-agent-motion-vfx-s-cheap": {
+    "sourceRole": "motion-vfx-s-cheap",
+    "target": "openrouter/xiaomi/mimo-v2.6-flash",
+    "variant": null
+  },
+  "dsh-agent-motion-vfx-s": {
+    "sourceRole": "motion-vfx-s",
+    "target": "openrouter/deepseek/deepseek-v4.1-flash-1017",
+    "variant": null
+  },
+  "dsh-agent-motion-vfx-s-max": {
+    "sourceRole": "motion-vfx-s-max",
+    "target": "openrouter/z-ai/glm-5.3-flash",
+    "variant": null
+  },
+  "dsh-agent-audiovisual-review-s": {
+    "sourceRole": "audiovisual-review-s",
+    "target": "openrouter/google/gemini-3.1-flash-lite",
+    "variant": null
+  },
+  "dsh-agent-audiovisual-review-s-max": {
+    "sourceRole": "audiovisual-review-s-max",
+    "target": "openrouter/google/gemini-3.6-flash",
+    "variant": null
+  },
+  "dsh-agent-video-assistant-cheap": {
+    "sourceRole": "video-assistant-cheap",
+    "target": "openrouter/google/gemini-3.6-flash",
+    "variant": null
+  },
+  "dsh-agent-video-assistant": {
+    "sourceRole": "video-assistant",
+    "target": "openrouter/moonshotai/kimi-k3.1-pro",
+    "variant": null
+  },
+  "dsh-agent-video-assistant-max": {
+    "sourceRole": "video-assistant-max",
+    "target": "openrouter/moonshotai/kimi-k3.1-pro",
+    "variant": null
+  },
+  "dsh-agent-motion-vfx-cheap": {
+    "sourceRole": "motion-vfx-cheap",
+    "target": "openrouter/deepseek/deepseek-v4.1-flash-1017",
+    "variant": null
+  },
+  "dsh-agent-motion-vfx": {
+    "sourceRole": "motion-vfx",
+    "target": "openrouter/openai/gpt-6.1-terra",
+    "variant": "xhigh"
+  },
+  "dsh-agent-motion-vfx-max": {
+    "sourceRole": "motion-vfx-max",
+    "target": "openrouter/moonshotai/kimi-k3.1-pro",
+    "variant": null
+  },
+  "dsh-agent-audiovisual-review": {
+    "sourceRole": "audiovisual-review",
+    "target": "openrouter/google/gemini-3.6-flash",
+    "variant": null
+  },
+  "dsh-agent-audiovisual-review-max": {
+    "sourceRole": "audiovisual-review-max",
+    "target": "openrouter/google/gemini-4-argon",
+    "variant": null
+  },
+  "dsh-agent-explore": {
+    "sourceRole": "explore",
+    "target": "openrouter/deepseek/deepseek-v4.1-flash-1017",
+    "variant": null
+  },
+  "dsh-coordinator-off": {
+    "sourceRole": "orchestrator-custom",
+    "target": "openrouter/qwen/qwen3.8-2.4t-a95b",
+    "variant": null
+  },
+  "dsh-coordinator-free": {
+    "sourceRole": "orchestrator-custom",
+    "target": "openrouter/qwen/qwen3.8-2.4t-a95b",
+    "variant": null
+  },
+  "dsh-coordinator-simple": {
+    "sourceRole": "orchestrator-custom",
+    "target": "openrouter/qwen/qwen3.8-2.4t-a95b",
+    "variant": null
+  },
+  "dsh-coordinator-advanced": {
+    "sourceRole": "orchestrator-custom",
+    "target": "openrouter/qwen/qwen3.8-2.4t-a95b",
+    "variant": null
+  },
+  "dsh-coder": {
+    "sourceRole": "coder-custom",
+    "target": "openrouter/moonshotai/kimi-k3.1-pro",
+    "variant": null
+  },
+  "dsh-researcher": {
+    "sourceRole": "deep-researcher",
+    "target": "openrouter/deepseek/deepseek-v4.1-flash-1017",
+    "variant": null
+  },
+  "dsh-reviewer": {
+    "sourceRole": "reviewer",
+    "target": "openrouter/z-ai/glm-5.3",
+    "variant": "high"
+  },
+  "dsh-auditor": {
+    "sourceRole": "auditor",
+    "target": "openrouter/z-ai/glm-5.3",
+    "variant": null
+  },
+  "dsh-teacher": {
+    "sourceRole": "teacher-mode",
+    "target": "openrouter/deepseek/deepseek-v4.1-flash-1017",
+    "variant": null
+  },
+  "dsh-advisor": {
+    "sourceRole": "career-advisor",
+    "target": "openrouter/deepseek/deepseek-v4.1-flash-1017",
+    "variant": null
+  },
+  "dsh-video-editor": {
+    "sourceRole": "video-editor",
+    "target": "openrouter/moonshotai/kimi-k3.1-pro",
+    "variant": null
+  }
+}

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Workspace Semantic Index">
+  <rect x="6" y="7" width="52" height="50" rx="8" fill="#1e293b"/>
+  <path d="M17 20h18M17 28h12M17 36h10" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="38" cy="34" r="8" fill="none" stroke="#38bdf8" stroke-width="4"/>
+  <path d="M44 40l7 7" stroke="#38bdf8" stroke-width="4" stroke-linecap="round"/>
+</svg>

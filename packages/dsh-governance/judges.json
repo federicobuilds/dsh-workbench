@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "judges": {
+    "clef-flash": {
+      "displayName": "Clef Flash",
+      "endpoint": "http://127.0.0.1:8043",
+      "model": "clef-flash",
+      "keyFile": "~/.config/kilo/harness/judge/local-key",
+      "requestTimeoutS": 30,
+      "deadlineS": 75,
+      "retries": 0,
+      "processTimeoutMs": 80000
+    },
+    "jev": {
+      "displayName": "Jev",
+      "endpoint": "https://api.typesafe.ai",
+      "model": "jev-1.13.0",
+      "keyFile": "~/.config/kilo/secrets/typesafe",
+      "requestTimeoutS": 20,
+      "deadlineS": 26,
+      "retries": 1,
+      "processTimeoutMs": 30000
+    }
+  },
+  "routes": {
+    "free": "clef-flash",
+    "simple": "clef-flash",
+    "advanced": "jev",
+    "off": "jev"
+  }
+}

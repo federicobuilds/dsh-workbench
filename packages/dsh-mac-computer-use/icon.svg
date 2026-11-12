@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Mac Computer Use">
+  <rect x="6" y="10" width="52" height="39" rx="7" fill="#1e293b"/>
+  <path d="M16 20h32M26 55h12m-6-6v6" fill="none" stroke="#cbd5e1" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M25 25v17l5-4 4 6 3-2-4-6 7-1z" fill="#a78bfa"/>
+</svg>

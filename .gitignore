@@ -1,0 +1,13 @@
+node_modules/
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+*.tgz
+.env
+.env.*
+!.env.example
+packages/dsh-message-edit/dist/build-metadata.json
+packages/dsh-message-edit/dist/client.js
+packages/dsh-message-edit/dist/index.js
+packages/dsh-message-edit/tests/fixture/

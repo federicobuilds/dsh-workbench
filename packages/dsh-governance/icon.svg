@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Subagent Orchestrator and Safety Gates">
+  <rect x="6" y="7" width="52" height="50" rx="8" fill="#1e293b"/>
+  <path d="M32 14l16 6v10c0 10-6 16-16 20-10-4-16-10-16-20V20z" fill="#10b981"/>
+  <path d="M24 31l6 6 11-12" fill="none" stroke="#0f172a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

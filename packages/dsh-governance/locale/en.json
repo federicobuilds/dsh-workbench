@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Subagent Orchestrator",
+    "description": "Coordinates multi-agent worker dispatch, review depth, and session role bindings."
+  }
+}

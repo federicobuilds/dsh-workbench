@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Task & Risk Judge",
+    "description": "Evaluates task risk, worker tier, and policy decisions before dispatch."
+  }
+}

@@ -1,0 +1,18 @@
+[
+ {
+  "insert": [
+   {
+    "id": "dsh-governance",
+    "name": "@dsh-workbench/dsh-governance",
+    "config": {
+     "approveExternalJudge": false,
+     "disableBundledMcpGate": true,
+     "disableBundledVerificationLedger": true,
+     "disableBundledMemoryViewer": true,
+     "disableBundledSearchGuard": true,
+     "disableBundledCredentialRouter": true
+    }
+   }
+  ]
+ }
+]

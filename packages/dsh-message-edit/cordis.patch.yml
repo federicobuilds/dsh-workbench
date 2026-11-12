@@ -1,0 +1,13 @@
+# Install the version-matched Chat extension and the durable edit command.
+# Disabling this bundle restores the shipped Chat row and its untouched settings.
+- id: ui-chat
+  disabled: true
+- insert:
+    - id: message-edit
+      name: '@dsh-workbench/dsh-message-edit'
+      config:
+        transcriptView: detailed
+        performanceUsage: detailed
+        collapseTiming: completion
+        foldedReplies: all
+        linkOpening: sidebar

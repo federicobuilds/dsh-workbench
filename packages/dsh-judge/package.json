@@ -1,0 +1,44 @@
+{
+  "name": "@dsh-workbench/dsh-judge",
+  "version": "1.0.1",
+  "private": true,
+  "type": "module",
+  "description": "Decision support for risk, routing, skills, and checks.",
+  "engines": {
+    "dsh": "0.2.2-rc.1"
+  },
+  "peerDependencies": {
+    "@dsh-workbench/dsh-governance": "^1.1.0",
+    "@deepseek-ai/dsh-llm": "0.2.2-rc.1",
+    "@deepseek-ai/cordis": "*"
+  },
+  "exports": {
+    ".": "./index.mjs",
+    "./runner": "./runner.mjs",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json",
+    "./cordis.patch.yml": "./cordis.patch.yml"
+  },
+  "files": [
+    "index.mjs",
+    "runner.mjs",
+    "router.mjs",
+    "bridge.py",
+    "original_judge.py",
+    "cordis.patch.yml",
+    "README.md",
+    "locale/*.json",
+    "icon.svg",
+    "requirements.txt"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "license": "AGPL-3.0-only",
+  "scripts": {
+    "test": "node --test *.test.*"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "name": "@dsh-workbench/dsh-session-tools",
+  "version": "0.2.1",
+  "private": true,
+  "type": "module",
+  "description": "Saved-chat deletion and history integrity safeguards with confirmation and exclusive writer-lock protection.",
+  "engines": {
+    "node": ">=24.9.0",
+    "dsh": "0.2.2-rc.1"
+  },
+  "exports": {
+    ".": "./host.mjs",
+    "./client": "./client-delete.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "host.mjs",
+    "delete.mjs",
+    "protocol.mjs",
+    "history-write-guard.mjs",
+    "history-recovery.mjs",
+    "history-checkpoint.mjs",
+    "bounded-summarizer.mjs",
+    "client-delete.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "VERIFICATION.md"
+  ],
+  "scripts": {
+    "test": "node --test index.test.mjs"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-api-remotes",
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-workspace"
+      ]
+    }
+  },
+  "license": "AGPL-3.0-only"
+}

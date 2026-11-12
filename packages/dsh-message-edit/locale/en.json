@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Message editor",
+    "description": "Edit actual user and assistant text in Chat. Regenerate user edits here or in a fork; assistant edits update effective history. Original records and attachments are preserved."
+  }
+}

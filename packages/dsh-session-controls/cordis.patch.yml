@@ -1,0 +1,3 @@
+- insert:
+    - id: dsh-session-controls
+      name: '@dsh-workbench/dsh-session-controls'

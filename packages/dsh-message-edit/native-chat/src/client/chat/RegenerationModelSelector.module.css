@@ -1,0 +1,6 @@
+.root { display: flex; flex-direction: column; gap: 6px; min-width: 0; margin-bottom: 8px; }
+.label { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--dsw-alias-label-secondary); }
+.select { flex: 1; min-width: 0; max-width: 100%; padding: 5px 8px; border: 1px solid var(--dsw-alias-border-l2); border-radius: 6px; background: var(--dsw-alias-bg-base); color: var(--dsw-alias-label-primary); font: inherit; }
+.select:focus-visible { outline: 2px solid var(--dsw-alias-state-info-primary); outline-offset: 2px; }
+.note { font-size: 11px; color: var(--dsw-alias-label-tertiary); }
+.note button { border: 0; background: transparent; color: inherit; text-decoration: underline; cursor: pointer; font: inherit; }

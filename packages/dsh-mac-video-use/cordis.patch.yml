@@ -1,0 +1,4 @@
+- insert:
+    - id: dsh-mac-video-use
+      name: '@dsh-workbench/dsh-mac-video-use'
+      disabled: !!js process.platform !== 'darwin'

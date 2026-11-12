@@ -1,0 +1,4 @@
+- insert:
+    - id: prompt-enhancer
+      name: '@dsh-workbench/dsh-prompt-enhancer'
+

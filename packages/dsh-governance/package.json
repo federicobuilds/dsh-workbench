@@ -1,0 +1,81 @@
+{
+  "name": "@dsh-workbench/dsh-governance",
+  "version": "1.1.5",
+  "private": true,
+  "type": "module",
+  "description": "Session governance, worker routing, checks, and activity reporting.",
+  "engines": {
+    "node": ">=24.9.0",
+    "dsh": "0.2.2-rc.1"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-session": "0.2.2-rc.1"
+  },
+  "exports": {
+    ".": "./index.mjs",
+    "./tracks": "./tracks.mjs",
+    "./bindings": "./bindings.mjs",
+    "./redaction": "./redaction.mjs",
+    "./legacy": "./legacy.mjs",
+    "./judge-registry": "./judge-config.mjs",
+    "./policy": "./policy.mjs",
+    "./events": "./event-store.mjs",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./memory-preview": "./memory-preview.mjs"
+  },
+  "files": [
+    "index.mjs",
+    "facade-core.mjs",
+    "model-overrides.mjs",
+    "credential-router.mjs",
+    "gates-core.mjs",
+    "bindings.mjs",
+    "judge.mjs",
+    "judge-config.mjs",
+    "legacy.mjs",
+    "policy.mjs",
+    "config-dto.mjs",
+    "review-store.mjs",
+    "gates.mjs",
+    "event-store.mjs",
+    "tool-result-policy.mjs",
+    "decision-events.mjs",
+    "tracks.mjs",
+    "redaction.mjs",
+    "worker-guard.mjs",
+    "worker-scope.mjs",
+    "verification.mjs",
+    "verification-policy.mjs",
+    "test-runs.mjs",
+    "background-checks.mjs",
+    "resource.mjs",
+    "efficiency.mjs",
+    "worker-messages.mjs",
+    "memory-preview.mjs",
+    "system-hooks.mjs",
+    "judges.json",
+    "role-roster.example.json",
+    "worker-patterns.json",
+    "assignments.json",
+    "roles",
+    "memory",
+    "rules",
+    "prompts",
+    "cordis.patch.yml",
+    "README.md",
+    "locale/*.json",
+    "icon.svg"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "license": "AGPL-3.0-only",
+  "scripts": {
+    "test": "node --test *.test.*"
+  }
+}

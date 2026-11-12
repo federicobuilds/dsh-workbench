@@ -1,0 +1,29 @@
+name: Workbench verification
+on: [push, pull_request]
+
+jobs:
+  release-checks:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.9.0'
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: npm ci --ignore-scripts
+      - run: npm run build
+      - run: npm run verify
+      - run: npm test
+        env:
+          DSH_SDK_ROOT: ${{ github.workspace }}
+      - run: npm run test:smoke
+        env:
+          DSH_SDK_ROOT: ${{ github.workspace }}
+      - run: python -m pip install -r packages/dsh-judge/requirements.txt
+      - run: python -m unittest discover -s packages/dsh-judge -p bridge_test.py

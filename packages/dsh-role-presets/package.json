@@ -1,0 +1,40 @@
+{
+  "name": "@dsh-workbench/dsh-role-presets",
+  "version": "1.1.1",
+  "private": true,
+  "type": "module",
+  "main": "./index.mjs",
+  "description": "Role presets and worker patterns for DeepSeek Harness.",
+  "engines": {
+    "dsh": "0.2.2-rc.1"
+  },
+  "exports": {
+    ".": "./index.mjs",
+    "./*": "./*",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.mjs",
+    "presets-data.json",
+    "cordis.patch.yml",
+    "README.md",
+    "locale/*.json",
+    "icon.svg"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "license": "AGPL-3.0-only",
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.1.0",
+    "@deepseek-ai/cordis-plugin-loader": "^1.1.0",
+    "@deepseek-ai/schemastery": "~3.19.0"
+  },
+  "scripts": {
+    "test": "node --test *.test.*"
+  }
+}

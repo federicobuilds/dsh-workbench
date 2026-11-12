@@ -1,0 +1,31 @@
+{
+  "name": "@dsh-workbench/dsh-credential-router",
+  "version": "0.1.1",
+  "type": "module",
+  "engines": {
+    "node": ">=24.9.0",
+    "dsh": "0.2.2-rc.1"
+  },
+  "scripts": {
+    "test": "node --test *.test.mjs"
+  },
+  "exports": {
+    ".": "./index.mjs",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json",
+    "./cordis.patch.yml": "./cordis.patch.yml"
+  },
+  "files": [
+    "*.mjs",
+    "cordis.patch.yml",
+    "icon.svg"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "license": "AGPL-3.0-only",
+  "description": "Rule-based provider credential routing for DeepSeek Harness.",
+  "private": true
+}

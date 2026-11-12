@@ -1,0 +1,4 @@
+- insert:
+    - id: session-tools
+      name: '@dsh-workbench/dsh-session-tools'
+      disabled: false

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Mac Video Editing">
+  <rect x="6" y="10" width="52" height="44" rx="8" fill="#1e293b"/>
+  <path d="m26 18 14 8-14 8z" fill="#a78bfa"/>
+  <path d="M14 42h36" stroke="#cbd5e1" stroke-width="4" stroke-linecap="round"/>
+  <path d="M32 37v10" stroke="#a78bfa" stroke-width="4" stroke-linecap="round"/>
+</svg>

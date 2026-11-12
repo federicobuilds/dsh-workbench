@@ -1,0 +1,117 @@
+{
+  "schema": "dsh-workbench.catalog/v1",
+  "count": 21,
+  "packages": [
+    {
+      "name": "@dsh-workbench/dsh-chat-search",
+      "version": "0.1.0",
+      "description": "Chat search refresh integration for DeepSeek Harness."
+    },
+    {
+      "name": "@dsh-workbench/dsh-credential-router",
+      "version": "0.1.1",
+      "description": "Rule-based provider credential routing for DeepSeek Harness."
+    },
+    {
+      "name": "@dsh-workbench/dsh-governance",
+      "version": "1.1.5",
+      "description": "Session governance, worker routing, checks, and activity reporting."
+    },
+    {
+      "name": "@dsh-workbench/dsh-judge",
+      "version": "1.0.1",
+      "description": "Decision support for risk, routing, skills, and checks."
+    },
+    {
+      "name": "@dsh-workbench/dsh-mac-computer-use",
+      "version": "0.3.0",
+      "description": "General macOS app workflows for DeepSeek Harness Computer Use.",
+      "platforms": [
+        "darwin"
+      ]
+    },
+    {
+      "name": "@dsh-workbench/dsh-mac-video-use",
+      "version": "0.1.1",
+      "description": "Video-editing workflow guidance for DeepSeek Harness macOS Computer Use",
+      "platforms": [
+        "darwin"
+      ]
+    },
+    {
+      "name": "@dsh-workbench/dsh-mcp-gate",
+      "version": "0.1.1",
+      "description": "MCP discovery enforcement, tool-result redaction, and governance events."
+    },
+    {
+      "name": "@dsh-workbench/dsh-memory-viewer",
+      "version": "0.1.1",
+      "description": "Project memory preview and companion publication for DeepSeek Harness."
+    },
+    {
+      "name": "@dsh-workbench/dsh-message-edit",
+      "version": "3.3.1",
+      "description": "Edit actual message text in-place or in a fork, switch models on user regeneration, and hold queued messages aside while editing."
+    },
+    {
+      "name": "@dsh-workbench/dsh-prompt-enhancer",
+      "version": "0.1.0",
+      "description": "Independent prompt enhancement for the conversation composer."
+    },
+    {
+      "name": "@dsh-workbench/dsh-role-presets",
+      "version": "1.1.1",
+      "description": "Role presets and worker patterns for DeepSeek Harness."
+    },
+    {
+      "name": "@dsh-workbench/dsh-search-guard",
+      "version": "0.1.1",
+      "description": "Workspace search boundary enforcement for DeepSeek Harness."
+    },
+    {
+      "name": "@dsh-workbench/dsh-secret-redactor",
+      "version": "0.1.1",
+      "description": "Secret redaction for DeepSeek Harness tool results and events."
+    },
+    {
+      "name": "@dsh-workbench/dsh-session-controls",
+      "version": "1.0.0",
+      "description": "Session guard and role switcher for DeepSeek Harness."
+    },
+    {
+      "name": "@dsh-workbench/dsh-session-tools",
+      "version": "0.2.1",
+      "description": "Saved-chat deletion and history integrity safeguards with confirmation and exclusive writer-lock protection."
+    },
+    {
+      "name": "@dsh-workbench/dsh-skill-mcp-router",
+      "version": "0.1.0",
+      "description": "Skill and MCP routing recommendations for DeepSeek Harness."
+    },
+    {
+      "name": "@dsh-workbench/dsh-storage-guard",
+      "version": "0.1.1",
+      "description": "Storage, resource, and verification guards for DeepSeek Harness."
+    },
+    {
+      "name": "@dsh-workbench/dsh-task-progress",
+      "version": "2.0.2",
+      "description": "EVM, analogy, and survival-calibrated station clock & progress bar above the composer with non-interrupting model guidance and read-only DSH governance integration."
+    },
+    {
+      "name": "@dsh-workbench/dsh-verification-ledger",
+      "version": "0.1.1",
+      "description": "Verification, resource, and efficiency decision tools for DeepSeek Harness."
+    },
+    {
+      "name": "@dsh-workbench/dsh-workspace-index",
+      "version": "1.0.1",
+      "description": "Local semantic workspace index with incremental updates and search."
+    },
+    {
+      "name": "@dsh-workbench/dsh-workspace-placement",
+      "version": "0.1.0",
+      "description": "Workspace and task references for saved DSH chats."
+    }
+  ]
+}

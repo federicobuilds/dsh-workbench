@@ -1,0 +1,7 @@
+- insert:
+    - id: dsh-judge
+      name: '@dsh-workbench/dsh-judge'
+      config:
+        allowLocalInference: true
+        allowExternalInference: false
+        disableBundledRouter: true
