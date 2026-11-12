@@ -2,6 +2,8 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile, writeFile, unlink } from 'node:fs/promises';
 import { randomUUID } from 'node:crypto';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import { createRequire } from 'node:module';
 import { pathToFileURL } from 'node:url';
 import { selectionFor, applyBindings, PRIMARY_ROLES, switchSessionRole } from './bindings.mjs';
@@ -219,7 +221,7 @@ test('role switch survives native JSONL format persistence and cold service repl
   assert.equal(pkg.exports['./bindings'], './bindings.mjs');
   await fresh.switchSessionRole(ctx, agent, 'dsh-agent-executor');
   assert.deepEqual(agent.model.current(), { provider: 'openrouter', model: 'openai/gpt-6.1-terra', reasoningEffort: 'xhigh' });
-  const path = `/var/folders/07/bshbzmzx7wx8f1psg06kck8m0000gn/T/kilo/dsh-d3-role-${randomUUID()}.jsonl`;
+  const path = join(tmpdir(), `dsh-d3-role-${randomUUID()}.jsonl`);
   const rows = [sessionFormatCatalog.encodeCurrentHeader(session.header, session.inheritedEventCount), ...session.snapshotEvents(0, session.seq).map(event => sessionFormatCatalog.encodeCurrentEvent(event))];
   await writeFile(path, rows.map(row => JSON.stringify(row)).join('\n') + '\n', { mode: 0o600, flag: 'wx' });
   let persisted;

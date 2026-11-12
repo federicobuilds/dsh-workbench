@@ -3,7 +3,9 @@ import assert from 'node:assert/strict';
 import { createGovernanceFacade } from './facade-core.mjs';
 import { QUESTIONS } from './judge.mjs';
 import { decisionEvent, withLogOutcome } from './decision-events.mjs';
-import { randomUUID } from 'node:crypto';
+import { mkdtemp, rm } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import { createReviewStore, REVIEW_DOMAIN_SPEC } from './review-store.mjs';
 
 const SECRET = 'sk-or-v1-' + 'SYNTHETICSECRET'.repeat(3);
@@ -140,10 +142,12 @@ test('facade wrappers share an open review domain until the last disposer', asyn
   assert.equal(f.closes, 1);
 });
 
-test('native JSON domain reopens with concurrent admissions and escalation floor intact', async () => {
+test('native JSON domain reopens with concurrent admissions and escalation floor intact', async t => {
   const { DomainFacility } = await import('@deepseek-ai/dsh-storage-domain');
   const { JsonStorageBackend } = await import('@deepseek-ai/dsh-storage-json');
-  const backend = new JsonStorageBackend(`/var/folders/07/bshbzmzx7wx8f1psg06kck8m0000gn/T/kilo/dsh-d2-review-fixture/${randomUUID()}`);
+  const directory = await mkdtemp(join(tmpdir(), 'dsh-review-'));
+  t.after(() => rm(directory, { recursive: true, force: true }));
+  const backend = new JsonStorageBackend(directory);
   const facility = new DomainFacility({ storage: { backend: { get: () => backend } }, emit() {}, logger: { warn() {} } }, { backend: 'json' });
   const domain = await facility.open(REVIEW_DOMAIN_SPEC);
   const a = createReviewStore(domain), b = createReviewStore(domain);

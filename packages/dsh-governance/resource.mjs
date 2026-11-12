@@ -34,7 +34,7 @@ export const DISK_WARN_GB = 50;
 export const DISK_REFUSE_GB = 30;
 
 const NULL_SINKS = new Set(['/dev/null', '-', '/dev/stdout', '/dev/stderr']);
-const KILO_TMP = '/var/folders/07/bshbzmzx7wx8f1psg06kck8m0000gn/T/kilo';
+const KILO_TMP = resolve(tmpdir(), 'kilo');
 const TMP_ROOTS = [
   ...new Set([
     tmpdir(),
