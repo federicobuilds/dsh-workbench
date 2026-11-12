@@ -1,22 +1,32 @@
 import { readFileSync } from 'node:fs'
 import { createRequire } from 'node:module'
+import { dirname, join } from 'node:path'
 import { zstdDecompressSync } from 'node:zlib'
 
-// Load the installed reader without starting its worker or changing its validators.
-export function installedSessionReader(archive = '/Applications/DeepSeek Harness.app/Contents/Resources/app.asar') {
-  const bytes = readFileSync(archive)
-  const header = JSON.parse(bytes.subarray(16, 16 + bytes.readUInt32LE(12)).toString('utf8'))
-  const base = 8 + bytes.readUInt32LE(4)
-  const path = 'dsh/node_modules/@deepseek-ai/dsh-session-persistence-jsonl/lib/worker.cjs'
-  let entry = header
-  for (const part of path.split('/')) entry = entry.files[part]
-  const start = base + Number(entry.offset)
-  const code = bytes.subarray(start, start + entry.size).toString('utf8')
+const require = createRequire(import.meta.url);
+
+function readWorker(archive) {
+  if (!archive) {
+    const entry = require.resolve('@deepseek-ai/dsh-session-persistence-jsonl');
+    return readFileSync(join(dirname(entry), 'worker.cjs'), 'utf8');
+  }
+  const bytes = readFileSync(archive);
+  const header = JSON.parse(bytes.subarray(16, 16 + bytes.readUInt32LE(12)).toString('utf8'));
+  const base = 8 + bytes.readUInt32LE(4);
+  const path = 'dsh/node_modules/@deepseek-ai/dsh-session-persistence-jsonl/lib/worker.cjs';
+  let entry = header;
+  for (const part of path.split('/')) entry = entry.files[part];
+  const start = base + Number(entry.offset);
+  return bytes.subarray(start, start + entry.size).toString('utf8');
+}
+
+// Load the version-pinned reader without starting its worker.
+export function installedSessionReader(archive = process.env.DSH_TEST_DESKTOP_ASAR) {
+  const code = readWorker(archive);
   const boundary = code.indexOf('//#region lib/types/win32.js')
   if (boundary < 0 || !code.slice(0, boundary).includes('var SessionLogScanner = class')) {
     throw new Error('Unsupported installed DSH reader layout')
   }
-  const require = createRequire(import.meta.url)
   const runtimeRequire = specifier => {
     if (specifier === 'node:module') {
       return { ...require(specifier), createRequire: () => target => {
