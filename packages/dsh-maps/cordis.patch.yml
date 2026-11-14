@@ -1,0 +1,3 @@
+- insert:
+    - id: dsh-maps
+      name: '@dsh-workbench/dsh-maps'

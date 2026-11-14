@@ -35,7 +35,7 @@ test('authorization refusal and cancellation launch no interpreter or decision r
   assert.equal(denied.decision, 'UNSURE'); assert.equal(capture.calls, 0);
   const controller = new AbortController(); controller.abort();
   await runner.decide({ operation: 'skill', family: 'simple', state: 'task' }, { signal: controller.signal });
-  assert.equal(capture.calls, 0); assert.equal(OPERATIONS.length, 15);
+  assert.equal(capture.calls, 0); assert.ok(OPERATIONS.includes('task-organization'));
 });
 test('authorized wrapper sends bounded data on stdin and preserves Unicode response', async () => {
   const capture = { calls: 0 };

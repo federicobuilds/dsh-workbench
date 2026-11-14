@@ -3,7 +3,7 @@ import { homedir } from 'node:os';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { legacyEnv, resolveJudge } from '@dsh-workbench/dsh-governance/judge-registry';
-export const OPERATIONS = Object.freeze(['risk','tier','dispatch','conflict','lane','route','auditor-tier','search-scope','skill','skill-index','claims','repeat','check','resource','efficiency']);
+export const OPERATIONS = Object.freeze(['risk','tier','dispatch','conflict','lane','route','auditor-tier','search-scope','skill','skill-index','claims','repeat','check','resource','efficiency','task-organization','memory-reminder']);
 const PYTHON = legacyEnv('DSH_JUDGE_PYTHON', 'KILO_JUDGE_PYTHON') || join(homedir(), '.dsh', 'profiles', 'desktop', 'runtime', 'dsh-judge', '.venv', 'bin', 'python');
 const SCRIPT = fileURLToPath(new URL('./bridge.py', import.meta.url));
 
@@ -11,15 +11,27 @@ const SCRIPT = fileURLToPath(new URL('./bridge.py', import.meta.url));
  * performed by construction/readiness. Input stays on stdin, never argv. */
 export function createOriginalJudge({ authorizeOperation = () => false, launch = spawn } = {}) {
   return { async decide({ operation, family, state, skills = {}, options = {} }, { signal } = {}) {
-    const unsure = reason => ({ decision: 'UNSURE', why: reason, unavailable: true, permissionGranted: false });
+    let selected;
+    let preferredJudge;
+    const backend = () => selected && operation !== 'skill-index' ? { judge: selected.id, model: selected.env.JUDGE_MODEL, ...(preferredJudge ? { preferredJudge } : {}) } : {};
+    const unsure = reason => ({ decision: 'UNSURE', why: reason, unavailable: true, ...backend(), permissionGranted: false });
     if (!OPERATIONS.includes(operation) || !['off','free','simple','advanced'].includes(family)) return unsure('Invalid operation or worker track');
     const input = JSON.stringify({ operation, state, skills, options });
     if (Buffer.byteLength(input) > 2 * 1024 * 1024) return unsure('Decision envelope exceeds its limit');
-    let selected;
     try { selected = resolveJudge(family, homedir()); } catch { return unsure('Judge registry unavailable'); }
     if (signal?.aborted) return unsure('Cancelled');
     try {
-      if (operation !== 'skill-index' && await authorizeOperation({ operation, family, judge: selected.id, external: !selected.local }) !== true) return unsure('Judge inference is not authorized');
+      const authorized = judge => authorizeOperation({ operation, family, judge: judge.id, external: !judge.local });
+      if (operation !== 'skill-index' && await authorized(selected) !== true) {
+        if (!selected.local && ['memory-reminder', 'task-organization'].includes(operation)) {
+          const local = resolveJudge('simple', homedir());
+          if (local.local && await authorized(local) === true) {
+            preferredJudge = selected.id;
+            selected = local;
+          }
+        }
+        if (!preferredJudge) return unsure('Judge inference is not authorized');
+      }
     } catch { return unsure('Judge authorization unavailable'); }
     if (signal?.aborted) return unsure('Cancelled');
     const env = { HOME: homedir(), PATH: process.env.PATH, LANG: process.env.LANG ?? 'en_US.UTF-8', PYTHONDONTWRITEBYTECODE: '1' };
@@ -58,7 +70,7 @@ export function createOriginalJudge({ authorizeOperation = () => false, launch =
         try {
           const value = JSON.parse(Buffer.concat(chunks).toString('utf8'));
           if (!value || typeof value !== 'object' || typeof value.decision !== 'string') throw new Error();
-          done({ ...value, permissionGranted: false });
+          done({ ...value, ...backend(), permissionGranted: false });
         } catch { done(unsure('Judge returned invalid output')); }
       });
       child.stdin.end(input);

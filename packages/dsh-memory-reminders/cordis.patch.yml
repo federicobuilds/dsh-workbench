@@ -1,0 +1,4 @@
+- insert:
+    - id: dsh-memory-reminders
+      name: "@dsh-workbench/dsh-memory-reminders"
+      config: {}

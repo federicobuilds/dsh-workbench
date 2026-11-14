@@ -8,9 +8,11 @@ import { basename, dirname, isAbsolute, join, resolve } from 'node:path';
 import { packagesForPlatform } from './packages.mjs';
 import { archiveHash, packPackages, readArchives } from './pack.mjs';
 
-const [profileArgument, archiveArgument, ...extra] = process.argv.slice(2);
+const args = process.argv.slice(2);
+const selection = args.find(argument => argument.startsWith('--only='))?.slice(7).split(',');
+const [profileArgument, archiveArgument, ...extra] = args.filter(argument => !argument.startsWith('--only='));
 if (!profileArgument || extra.length || !isAbsolute(profileArgument) || (archiveArgument && !isAbsolute(archiveArgument))) {
-  console.error('Usage: node scripts/install-profile.mjs /absolute/path/to/dsh-profile [/absolute/path/to/archives]');
+  console.error('Usage: node scripts/install-profile.mjs /absolute/path/to/dsh-profile [/absolute/path/to/archives] [--only=package,package]');
   process.exit(2);
 }
 
@@ -19,7 +21,11 @@ const manifestPath = join(profile, 'package.json');
 if (!existsSync(manifestPath) || !lstatSync(manifestPath).isFile()) {
   throw new Error(`Target is not a DSH profile with package.json: ${profile}`);
 }
-const selected = packagesForPlatform(process.platform);
+const available = packagesForPlatform(process.platform);
+const selected = selection ? available.filter(({ dir }) => selection.includes(dir)) : available;
+if (selection && (selected.length === 0 || selected.length !== new Set(selection).size)) {
+  throw new Error('One or more selected packages are unknown or unsupported on this platform.');
+}
 const lock = join(profile, '.dsh-workbench-install.lock');
 mkdirSync(lock);
 let staging;
@@ -46,7 +52,7 @@ try {
   const packagesDir = join(profile, 'dsh-packages');
   const modules = join(profile, 'node_modules');
   const scope = join(modules, '@dsh-workbench');
-  const backup = join(profile, '.dsh-workbench-backup');
+  const backup = join(profile, selection ? '.dsh-workbench-backup-' + basename(staging).split('-').at(-1) : '.dsh-workbench-backup');
   for (const path of [packagesDir, modules, scope, backup]) ensureDirectory(path);
   for (const path of [manifestPath, ...(hadPatch ? [patchPath] : [])]) {
     assert(lstatSync(path).isFile(), `Expected a regular profile file at ${path}`);
@@ -70,7 +76,13 @@ try {
     assert.equal(installed.version, metadata.version);
     const installedCopy = join(staging, `${dir}-installed`);
     cpSync(unpacked, installedCopy, { recursive: true });
-    operations.push([unpacked, join(packagesDir, dir)], [installedCopy, join(scope, dir)]);
+    const destinations = [join(packagesDir, dir), join(scope, dir)];
+    for (const [index, destination] of destinations.entries()) {
+      if (selection && existsSync(destination)) {
+        cpSync(destination, join(backup, (index === 0 ? 'source-' : 'installed-') + dir), { recursive: true, verbatimSymlinks: true });
+      }
+    }
+    operations.push([unpacked, destinations[0]], [installedCopy, destinations[1]]);
     manifest.dependencies[metadata.name] = `file:./dsh-packages/${dir}`;
     if (!manifest.dsh.profile.bundles.includes(metadata.name)) manifest.dsh.profile.bundles.push(metadata.name);
   }

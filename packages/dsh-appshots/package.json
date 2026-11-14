@@ -1,0 +1,49 @@
+{
+  "name": "@dsh-workbench/dsh-appshots",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Capture and annotate a window or tab for the current DSH conversation.",
+  "engines": {
+    "dsh": "0.2.2-rc.1",
+    "node": ">=24.9.0"
+  },
+  "exports": {
+    ".": "./index.mjs",
+    "./client": "./client.js",
+    "./icon": "./icon.svg",
+    "./locale/*.json": "./locale/*.json",
+    "./package.json": "./package.json",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./remote": "./remote.mjs"
+  },
+  "files": [
+    "index.mjs",
+    "client.js",
+    "icon.svg",
+    "locale/*.json",
+    "cordis.patch.yml",
+    "README.md",
+    "remote.mjs"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-api-gateway",
+        "@deepseek-ai/dsh-api-remotes",
+        "@deepseek-ai/dsh-api-session-controller",
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ]
+    }
+  },
+  "license": "AGPL-3.0-only",
+  "peerDependencies": {
+    "@deepseek-ai/dsh-typert-protocol": "0.2.2-rc.1",
+    "zod": "^4.0.0"
+  }
+}

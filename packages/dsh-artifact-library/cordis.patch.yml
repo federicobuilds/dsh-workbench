@@ -1,0 +1,3 @@
+- insert:
+    - id: dsh-artifact-library
+      name: '@dsh-workbench/dsh-artifact-library'

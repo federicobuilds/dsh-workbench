@@ -1,0 +1,43 @@
+{
+  "name": "@dsh-workbench/dsh-shared-memory",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Read and verify the same project memory from DSH, Codex, and Kilo.",
+  "engines": {
+    "node": ">=24.9.0",
+    "dsh": "0.2.2-rc.1"
+  },
+  "bin": {
+    "dsh-shared-memory": "./cli.mjs"
+  },
+  "peerDependencies": {
+    "@dsh-workbench/dsh-governance": "^1.1.5"
+  },
+  "exports": {
+    ".": "./index.mjs",
+    "./memory": "./memory.mjs",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json",
+    "./cordis.patch.yml": "./cordis.patch.yml"
+  },
+  "files": [
+    "index.mjs",
+    "memory.mjs",
+    "html-record.mjs",
+    "html-memory.mjs",
+    "html-store.py",
+    "cli.mjs",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "license": "AGPL-3.0-only"
+}

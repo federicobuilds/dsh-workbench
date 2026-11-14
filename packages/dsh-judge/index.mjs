@@ -37,15 +37,32 @@ function familyOf(ctx, agent) {
 }
 function approved(config, scope) { return scope.external ? config.allowExternalInference === true : config.allowLocalInference === true; }
 
+async function record(ctx, sessionId, result, operation, callId, track) {
+    const domain = ctx.get('storageDomain')?.get?.('dsh_governance_events');
+    if (!domain) return;
+    try { await createEventStore(domain).record({ v: 1, id: randomUUID(), ts: Date.now(), kind: 'judge', session: sessionId,
+      decision: result.unavailable ? 'unavailable' : result.decision === 'UNSURE' ? 'uncertain' : result.decision === 'none' ? 'no-recommendation' : 'recommendation',
+      ...(track ? { track } : {}),
+      ...(result.preferredJudge ? { preferredJudge: result.preferredJudge } : {}),
+      tool: 'dsh_decision', actor: 'advisory-router',
+      ...(['clef-flash', 'jev'].includes(result.judge) ? { judge: result.judge } : {}),
+      ...(typeof result.model === 'string' && /^(?:clef-flash|jev-[0-9.]+)$/.test(result.model) ? { model: result.model } : {}),
+      ...(typeof callId === 'string' && /^[\w:.-]{1,160}$/.test(callId) ? { callId } : {}),
+      reason: `Advisory judge ${operation}: ${redactText(result.decision).text.slice(0,100)}`, permissionGranted: false }); } catch { /* advisory does not waive/refuse task */ }
+  }
 class OriginalJudgeService extends Service {
   constructor(ctx, config) {
-    super(ctx, 'dshJudge'); this.runner = createOriginalJudge({ authorizeOperation: scope => approved(config, scope) });
+    super(ctx, 'dshJudge'); this.context = ctx; this.runner = createOriginalJudge({ authorizeOperation: scope => approved(config, scope) });
     this.routingEnabled = config.allowLocalInference === true || config.allowExternalInference === true;
     this.lifetime = new AbortController(); ctx.effect(() => () => this.lifetime.abort());
   }
-  decide(input, options = {}) {
+  async decide(input, options = {}) {
     const signal = options.signal ? AbortSignal.any([options.signal, this.lifetime.signal]) : this.lifetime.signal;
-    return this.runner.decide(input, { ...options, signal });
+    const result = await this.runner.decide(input, { signal });
+    if (options.sessionId && input.operation !== 'skill-index' && !signal.aborted) {
+      await record(this.context, options.sessionId, result, input.operation, options.callId, input.family);
+    }
+    return result;
   }
 }
 
@@ -53,13 +70,6 @@ export function apply(ctx, config = {}) {
   const judge = new OriginalJudgeService(ctx, config);
   const seen = new Map();
   ctx.effect(() => () => seen.clear());
-  async function record(agent, result, operation) {
-    const domain = ctx.get('storageDomain')?.get?.('dsh_governance_events');
-    if (!domain) return;
-    try { await createEventStore(domain).record({ v: 1, id: randomUUID(), ts: Date.now(), kind: 'judge', session: agent.session.id,
-      decision: result.unavailable ? 'unavailable' : result.decision === 'none' ? 'no-recommendation' : 'recommendation',
-      tool: 'dsh_decision', reason: `Original judge ${operation}: ${redactText(result.decision).text.slice(0,100)}`, permissionGranted: false }); } catch { /* advisory does not waive/refuse task */ }
-  }
   if (config.disableBundledRouter !== true) ctx.on('agent/pre-step', async (step, next) => {
     const decision = await next();
     if (decision.kind !== 'enter') return decision;
@@ -71,8 +81,7 @@ export function apply(ctx, config = {}) {
     try {
       const skills = await visibleCatalog(ctx, step.agent, step.signal);
       const state = { ...input.state, message: redactText(input.state.message).text, ...(input.state.task ? { task: redactText(input.state.task).text } : {}) };
-      const result = await judge.decide({ operation: 'skill', family: familyOf(ctx, step.agent), state, skills }, { signal: step.signal });
-      await record(step.agent, result, 'skill');
+      const result = await judge.decide({ operation: 'skill', family: familyOf(ctx, step.agent), state, skills }, { signal: step.signal, sessionId: step.agent.session.id, callId: input.id });
       const note = result.unavailable ? 'Router status: unavailable. Continue without advisory suggestions; this grants no permission.' : routerNote(result, skills);
       if (!note || step.signal?.aborted) return decision;
       return { ...decision, messages: [...decision.messages, createUserMessage({ content: [{ type: 'text', text: note }], source: { kind: 'dsh-judge-router', requestId: input.id } })] };
@@ -87,8 +96,7 @@ export function apply(ctx, config = {}) {
     execute: async (args, exec) => {
       if (!exec.agent || (args.input?.length ?? 0) > 12000) return { decision: 'UNSURE', unavailable: true, why: 'Caller/input unavailable', permissionGranted: false };
       const skills = ['skill','skill-index'].includes(args.operation) ? await visibleCatalog(ctx, exec.agent, exec.signal) : {};
-      const result = await judge.decide({ operation: args.operation, family: familyOf(ctx, exec.agent), state: args.input ?? '', skills }, { signal: exec.signal });
-      if (args.operation !== 'skill-index') await record(exec.agent, result, args.operation);
+      const result = await judge.decide({ operation: args.operation, family: familyOf(ctx, exec.agent), state: args.input ?? '', skills }, { signal: exec.signal, sessionId: exec.agent.session.id, callId: exec.callId });
       if (args.operation === 'skill') return { ...result, hint: routerNote(result, skills) };
       return result;
     } });

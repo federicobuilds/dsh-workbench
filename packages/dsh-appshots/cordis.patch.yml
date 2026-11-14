@@ -1,0 +1,3 @@
+- insert:
+    - id: dsh-appshots
+      name: '@dsh-workbench/dsh-appshots'

@@ -1,0 +1,55 @@
+{
+  "name": "@dsh-workbench/dsh-task-organization",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Ask Clef whether the current draft belongs in another chat.",
+  "engines": {
+    "dsh": "0.2.2-rc.1"
+  },
+  "exports": {
+    ".": "./index.mjs",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json",
+    "./remote": "./remote.mjs"
+  },
+  "files": [
+    "index.mjs",
+    "client.js",
+    "cordis.patch.yml",
+    "README.md",
+    "locale/*.json",
+    "icon.svg",
+    "remote.mjs",
+    "evidence.mjs"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-api-gateway",
+        "@deepseek-ai/dsh-api-remotes",
+        "@deepseek-ai/dsh-api-session-controller",
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-chat",
+        "@deepseek-ai/dsh-client-ui-workspace",
+        "@dsh-workbench/dsh-side-chats",
+        "@deepseek-ai/dsh-api-workspace-controller"
+      ]
+    }
+  },
+  "license": "AGPL-3.0-only",
+  "peerDependencies": {
+    "@dsh-workbench/dsh-side-chats": "^0.1.0",
+    "@dsh-workbench/dsh-judge": "^1.0.2",
+    "@dsh-workbench/dsh-governance": "^1.1.0",
+    "@deepseek-ai/dsh-typert-protocol": "0.2.2-rc.1",
+    "zod": "^4.0.0"
+  }
+}

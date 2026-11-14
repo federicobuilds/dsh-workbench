@@ -1,0 +1,3 @@
+- insert:
+    - id: dsh-task-organization
+      name: '@dsh-workbench/dsh-task-organization'

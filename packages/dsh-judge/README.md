@@ -1,6 +1,6 @@
 # Decision support
 
-The Python engine supports risk, tier, dispatch, conflict, lane, route, auditor-tier, search-scope, skill, skill-index, claims, repeat, check, resource and efficiency decisions, including Choice/Noul gates, shortlists and reranking.
+The Python engine supports risk, tier, dispatch, conflict, lane, route, auditor-tier, search-scope, skill, skill-index, claims, repeat, check, resource, efficiency, task organization, and memory reminder decisions, including Choice/Noul gates, shortlists and reranking.
 
 ## Integration
 
@@ -34,3 +34,5 @@ printf '%s\n' '{"operation":"skill-index","state":"","skills":{}}' | .venv/bin/p
 ```
 
 The bridge should emit a JSON decision for an empty skill catalog.
+
+Memory and chat focus fall back to the authorized local judge when the worker track selects a hosted judge blocked by profile policy. Governance events record the selected track, backend, and outcome, including uncertainty and failures.

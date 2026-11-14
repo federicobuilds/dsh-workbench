@@ -1,0 +1,3 @@
+- insert:
+    - id: dsh-side-chats
+      name: '@dsh-workbench/dsh-side-chats'

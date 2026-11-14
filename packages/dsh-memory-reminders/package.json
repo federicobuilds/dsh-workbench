@@ -1,0 +1,42 @@
+{
+  "name": "@dsh-workbench/dsh-memory-reminders",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Track project memory updates prompted by durable decisions and milestones.",
+  "engines": {
+    "node": ">=24.9.0",
+    "dsh": "0.2.2-rc.1"
+  },
+  "peerDependencies": {
+    "@dsh-workbench/dsh-governance": "^1.1.5",
+    "@dsh-workbench/dsh-shared-memory": "^0.1.0",
+    "@dsh-workbench/dsh-judge": "^1.0.2"
+  },
+  "exports": {
+    ".": "./index.mjs",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json",
+    "./cordis.patch.yml": "./cordis.patch.yml"
+  },
+  "files": [
+    "index.mjs",
+    "reminders.mjs",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "cli.mjs",
+    "project-store.mjs"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "license": "AGPL-3.0-only",
+  "bin": {
+    "dsh-memory-reminders": "./cli.mjs"
+  }
+}

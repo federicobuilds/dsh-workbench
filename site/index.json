@@ -1,7 +1,17 @@
 {
   "schema": "dsh-workbench.catalog/v1",
-  "count": 21,
+  "count": 28,
   "packages": [
+    {
+      "name": "@dsh-workbench/dsh-appshots",
+      "version": "0.1.0",
+      "description": "Capture and annotate a window or tab for the current DSH conversation."
+    },
+    {
+      "name": "@dsh-workbench/dsh-artifact-library",
+      "version": "0.1.0",
+      "description": "Browse and reuse deliverables across DSH conversations."
+    },
     {
       "name": "@dsh-workbench/dsh-chat-search",
       "version": "0.1.0",
@@ -19,7 +29,7 @@
     },
     {
       "name": "@dsh-workbench/dsh-judge",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "description": "Decision support for risk, routing, skills, and checks."
     },
     {
@@ -39,9 +49,19 @@
       ]
     },
     {
+      "name": "@dsh-workbench/dsh-maps",
+      "version": "0.1.0",
+      "description": "Find places on an interactive map and start a DSH chat about an area."
+    },
+    {
       "name": "@dsh-workbench/dsh-mcp-gate",
       "version": "0.1.1",
       "description": "MCP discovery enforcement, tool-result redaction, and governance events."
+    },
+    {
+      "name": "@dsh-workbench/dsh-memory-reminders",
+      "version": "0.1.0",
+      "description": "Track project memory updates prompted by durable decisions and milestones."
     },
     {
       "name": "@dsh-workbench/dsh-memory-viewer",
@@ -84,6 +104,16 @@
       "description": "Saved-chat deletion and history integrity safeguards with confirmation and exclusive writer-lock protection."
     },
     {
+      "name": "@dsh-workbench/dsh-shared-memory",
+      "version": "0.1.0",
+      "description": "Read and verify the same project memory from DSH, Codex, and Kilo."
+    },
+    {
+      "name": "@dsh-workbench/dsh-side-chats",
+      "version": "0.1.0",
+      "description": "Branch from a selected message into a separate chat."
+    },
+    {
       "name": "@dsh-workbench/dsh-skill-mcp-router",
       "version": "0.1.0",
       "description": "Skill and MCP routing recommendations for DeepSeek Harness."
@@ -92,6 +122,11 @@
       "name": "@dsh-workbench/dsh-storage-guard",
       "version": "0.1.1",
       "description": "Storage, resource, and verification guards for DeepSeek Harness."
+    },
+    {
+      "name": "@dsh-workbench/dsh-task-organization",
+      "version": "0.1.0",
+      "description": "Ask Clef whether the current draft belongs in another chat."
     },
     {
       "name": "@dsh-workbench/dsh-task-progress",

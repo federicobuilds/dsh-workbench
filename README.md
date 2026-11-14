@@ -1,10 +1,20 @@
 # DSH Workbench
 
-DSH Workbench provides 21 plugins for DeepSeek Harness 0.2.2-rc.1. The collection includes session editing and deletion, workspace search and placement, role and worker governance, progress indicators, and macOS computer-use guidance. Browse the [package catalog](site/index.json) or the README in each package.
+DSH Workbench provides 28 plugins for DeepSeek Harness 0.2.2-rc.1. The collection includes session editing and deletion, workspace search and placement, role and worker governance, progress indicators, and macOS computer-use guidance. Browse the [package catalog](site/index.json) or the README in each package.
+
+## Conversation and research plugins
+
+- [Side Chats](packages/dsh-side-chats/README.md) branches a question from selected conversation text.
+- [Shared Memory](packages/dsh-shared-memory/README.md) reads and verifies existing project memory across DSH, Codex, and Kilo.
+- [Task Organization](packages/dsh-task-organization/README.md) asks Clef whether a draft belongs in a different chat.
+- [Memory Reminders](packages/dsh-memory-reminders/README.md) tracks decisions and milestones that need a verified memory update.
+- [Maps](packages/dsh-maps/README.md) adds nearby place search and opens a DSH draft with the selected area.
+- [Artifact Library](packages/dsh-artifact-library/README.md) searches delivered files across chats and adds file references to drafts.
+- [Appshots](packages/dsh-appshots/README.md) annotates screenshots and attaches them to the current draft.
 
 ## Install
 
-Use an existing compatible DSH profile, Node.js 24.9 or later, npm and tar. The installer selects 19 packages on Linux and adds the two native guidance plugins on macOS for a total of 21. The macOS guidance requires the upstream DSH CUA bundle.
+Use an existing compatible DSH profile, Node.js 24.9 or later, npm and tar. The installer selects 26 packages on Linux and adds the two native guidance plugins on macOS for a total of 28. The macOS guidance requires the upstream DSH CUA bundle.
 
 Close DSH and try the installer with a disposable profile first. Run the command from the Workbench source checkout:
 

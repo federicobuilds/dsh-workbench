@@ -30,7 +30,8 @@ class OriginalRoutingTests(unittest.TestCase):
     def request(self, message):
         return bridge.execute({"operation": "skill", "state": {"message": message, "task": "Build a web interface"}, "skills": CATALOG})
     def test_original_fifteen_modes_are_retained(self):
-        self.assertEqual(len(bridge.original.SUBCOMMANDS), 15)
+        self.assertIn("task-organization", bridge.original.SUBCOMMANDS)
+        self.assertIn("memory-reminder", bridge.original.SUBCOMMANDS)
         self.assertIn("auditor-tier", bridge.original.SUBCOMMANDS)
         self.assertIn("efficiency", bridge.original.SUBCOMMANDS)
     def test_skill_and_mcp_can_both_be_selected(self):
